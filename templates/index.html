@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banglore house price</title>
+    <link rel="shortcut icon" href="/static/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <style>
+      input[type="radio"] {
+        display: none;
+      }
+
+      /* Style for the selected card */
+      input[type="radio"]:checked + label {
+        border-color: #15eda3; /* Tailwind indigo-500 */
+        background-color: #15eda3;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body class="h-[100vh] bg-[#203A46] text-[#15EDA3]">
+    <header class="h-[10%] w-full box-border p-1">
+      <nav
+        class="h-full w-full border border-[#15EDA3] rounded-lg flex justify-start items-center"
+      >
+        <a href="{{ url_for('home' ) }}">
+          <img src="/static/logo_with_text.png" alt="Logo" class="h-20" />
+        </a>
+      </nav>
+    </header>
+    <main class="w-full h-[90%] p-1 pt-0 box-border">
+      <div
+        class="border main_cont border-[#15EDA3] w-full h-full rounded-lg flex flex-col items-center justify-start p-10"
+      >
+        <form
+          id="homeForm"
+          class="w-[50%] h-fit border border-[#15EDA3] rounded-md p-10 flex items-center justify-evenly flex-col"
+        >
+          <div class="w-80 flex justify-around items-center m-2">
+            <label for="sqft-inp">Area (sq. ft):</label>
+            <input
+              type="number"
+              name="sqft"
+              id="sqft-inp"
+              class="rounded-sm p-1 border-none outline-none bg-[#ace0ce] text-black"
+            />
+          </div>
+          <label class="text-lg">Select No. of Bedrooms</label>
+          <div class="w-80 flex items-center justify-center gap-2 m-2">
+            <input
+              type="radio"
+              id="1-bed-inp"
+              name="bhk"
+              value="1"
+              class="hidden"
+            />
+            <label
+              for="1-bed-inp"
+              class="cursor-pointer text-[#15EDA3] border-2 border-[#15EDA3] px-2 py-1 rounded-lg shadow-md text-center text-xl transition-colors hover:bg-[#15EDA3] hover:text-black"
+            >
+              1
+            </label>
+            <input
+              type="radio"
+              id="2-bed-inp"
+              name="bhk"
+              value="2"
+              class="hidden"
+            />
+            <label
+              for="2-bed-inp"
+              class="cursor-pointer text-[#15EDA3] border-2 border-[#15EDA3] px-2 py-1 rounded-lg shadow-md text-center text-xl transition-colors hover:bg-[#15EDA3] hover:text-black"
+            >
+              2
+            </label>
+            <input
+              type="radio"
+              id="3-bed-inp"
+              name="bhk"
+              value="3"
+              class="hidden"
+            />
+            <label
+              for="3-bed-inp"
+              class="cursor-pointer text-[#15EDA3] border-2 border-[#15EDA3] px-2 py-1 rounded-lg shadow-md text-center text-xl transition-colors hover:bg-[#15EDA3] hover:text-black"
+            >
+              3
+            </label>
+            <input
+              type="radio"
+              id="4-bed-inp"
+              name="bhk"
+              value="4"
+              class="hidden"
+            />
+            <label
+              for="4-bed-inp"
+              class="cursor-pointer text-[#15EDA3] border-2 border-[#15EDA3] px-2 py-1 rounded-lg shadow-md text-center text-xl transition-colors hover:bg-[#15EDA3] hover:text-black"
+            >
+              4
+            </label>
+            <input
+              type="radio"
+              id="5-bed-inp"
+              name="bhk"
+              value="5"
+              class="hidden"
+            />
+            <label
+              for="5-bed-inp"
+              class="cursor-pointer text-[#15EDA3] border-2 border-[#15EDA3] px-2 py-1 rounded-lg shadow-md text-center text-xl transition-colors hover:bg-[#15EDA3] hover:text-black"
+            >
+              5
+            </label>
+          </div>
+          <label class="text-lg">Select the No. of Bathrooms</label>
+          <div class="w-80 flex items-center justify-center gap-2 m-2">
+            <input
+              type="radio"
+              id="1-bath-inp"
+              name="bath"
+              value="1"
+              class="hidden"
+            />
+            <label
+              for="1-bath-inp"
+              class="cursor-pointer text-[#15EDA3] border-2 border-[#15EDA3] px-2 py-1 rounded-lg shadow-md text-center text-xl transition-colors hover:bg-[#15EDA3] hover:text-black"
+            >
+              1
+            </label>
+            <input
+              type="radio"
+              id="2-bath-inp"
+              name="bath"
+              value="2"
+              class="hidden"
+            />
+            <label
+              for="2-bath-inp"
+              class="cursor-pointer text-[#15EDA3] border-2 border-[#15EDA3] px-2 py-1 rounded-lg shadow-md text-center text-xl transition-colors hover:bg-[#15EDA3] hover:text-black"
+            >
+              2
+            </label>
+            <input
+              type="radio"
+              id="3-bath-inp"
+              name="bath"
+              value="3"
+              class="hidden"
+            />
+            <label
+              for="3-bath-inp"
+              class="cursor-pointer text-[#15EDA3] border-2 border-[#15EDA3] px-2 py-1 rounded-lg shadow-md text-center text-xl transition-colors hover:bg-[#15EDA3] hover:text-black"
+            >
+              3
+            </label>
+            <input
+              type="radio"
+              id="4-bath-inp"
+              name="bath"
+              value="4"
+              class="hidden"
+            />
+            <label
+              for="4-bath-inp"
+              class="cursor-pointer text-[#15EDA3] border-2 border-[#15EDA3] px-2 py-1 rounded-lg shadow-md text-center text-xl transition-colors hover:bg-[#15EDA3] hover:text-black"
+            >
+              4
+            </label>
+            <input
+              type="radio"
+              id="5-bath-inp"
+              name="bath"
+              value="5"
+              class="hidden"
+            />
+            <label
+              for="5-bath-inp"
+              class="cursor-pointer text-[#15EDA3] border-2 border-[#15EDA3] px-2 py-1 rounded-lg shadow-md text-center text-xl transition-colors hover:bg-[#15EDA3] hover:text-black"
+            >
+              5
+            </label>
+          </div>
+          <div class="w-full flex items-center justify-center">
+            <select
+              name="location"
+              id="loc-inp"
+              class="bg-[#203A46] border-2 border-[#15EDA3] p-1 rounded-md"
+            >
+              <option>Select Location</option>
+              {% for location in locations %}
+              <option value="{{location}}">
+                {{location.split()[0].capitalize()+" "+"
+                ".join(location.split()[1:]).title()}}
+              </option>
+              {% endfor %}
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            class="p-2 border-2 m-3 rounded-md border-[#15EDA3] hover:bg-[#15EDA3] hover:text-black"
+          >
+            Estimate Price
+          </button>
+        </form>
+        <div
+          class="border h-fit w-fit border-[#15EDA3] m-5 p-2 rounded-lg hidden"
+          id="price"
+        ></div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+      integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const socket = io.connect("http://127.0.0.1:5000");
+      socket.on("connect", () => {
+        console.log("connected");
+      });
+
+      const form = document.getElementById("homeForm");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const sqft = document.getElementById("sqft-inp").value;
+
+        const bhk = document.querySelector('input[name="bhk"]:checked')
+          ? document.querySelector('input[name="bhk"]:checked').value
+          : null;
+
+        const bath = document.querySelector('input[name="bath"]:checked')
+          ? document.querySelector('input[name="bath"]:checked').value
+          : null;
+
+        const location = document.getElementById("loc-inp").value;
+
+        socket.emit("estimate_price", {
+          sqft: sqft,
+          bhk: bhk,
+          bath: bath,
+          location: location,
+        });
+      });
+      socket.on("receive_price", (data) => {
+        const price_cont = document.getElementById("price");
+        price_cont.classList.remove("hidden");
+        price_cont.innerHTML = `${data} Lakhs`;
+      });
+    </script>
+  </body>
+</html>
