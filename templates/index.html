@@ -189,7 +189,7 @@
               id="loc-inp"
               class="bg-[#203A46] border-2 border-[#15EDA3] p-1 rounded-md"
             >
-              <option>Select Location</option>
+              <option value="null">Select Location</option>
               {% for location in locations %}
               <option value="{{location}}">
                 {{location.split()[0].capitalize()+" "+"
@@ -238,13 +238,16 @@
           : null;
 
         const location = document.getElementById("loc-inp").value;
-
-        socket.emit("estimate_price", {
-          sqft: sqft,
-          bhk: bhk,
-          bath: bath,
-          location: location,
-        });
+        if (sqft === "" || bhk == null || bath == null || location == "null") {
+          alert("Please select all values");
+        } else {
+          socket.emit("estimate_price", {
+            sqft: sqft,
+            bhk: bhk,
+            bath: bath,
+            location: location,
+          });
+        }
       });
       socket.on("receive_price", (data) => {
         const price_cont = document.getElementById("price");
